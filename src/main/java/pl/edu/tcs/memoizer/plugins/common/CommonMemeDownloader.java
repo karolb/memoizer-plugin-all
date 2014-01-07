@@ -1,4 +1,4 @@
-package pl.edu.tcs.memoizer.plugins.impl.common;
+package pl.edu.tcs.memoizer.plugins.common;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,13 +14,13 @@ import pl.edu.uj.tcs.memoizer.plugins.EViewType;
 import pl.edu.uj.tcs.memoizer.plugins.IPluginFactory;
 import pl.edu.uj.tcs.memoizer.plugins.Meme;
 
-public class CommonMemeDownloader {
+public abstract class CommonMemeDownloader {
 	
 	/*
 	 * Get a page source, parse it,
 	 * extract memes and return
 	 */
-	static List<Meme> downloadMemesFromPage(URL url, EViewType viewType, IPluginFactory pluginFactory){
+	List<Meme> downloadMemesFromPage(URL url, EViewType viewType, IPluginFactory pluginFactory){
 		return extractMemesFromNodes(
 				extractMemeNodes(
 				downloadPageSource(url)), viewType, pluginFactory);
@@ -31,7 +31,7 @@ public class CommonMemeDownloader {
 	 * If success returns downloaded page
 	 * otherwise returns null
 	 */
-	private static Document downloadPageSource(URL url){
+	private Document downloadPageSource(URL url){
 		try{
 			return Jsoup
 					.connect(url.toString())
@@ -45,7 +45,7 @@ public class CommonMemeDownloader {
 	 * Extract html meme-linked elements 
 	 * from given page source
 	 */
-	private static Elements extractMemeNodes(Document demotyPageSource){
+	private Elements extractMemeNodes(Document demotyPageSource){
 		//TODO
 		return null;
 	}
@@ -54,7 +54,7 @@ public class CommonMemeDownloader {
 	 * Parse html meme-linked element and extract meme info
 	 * returns list of parsed memes
 	 */
-	private static List<Meme> extractMemesFromNodes(Elements memeNodes, EViewType viewType, IPluginFactory pluginFactory){
+	private List<Meme> extractMemesFromNodes(Elements memeNodes, EViewType viewType, IPluginFactory pluginFactory){
 		List<Meme> lst = new ArrayList<Meme>();
 		
 		//TODO
