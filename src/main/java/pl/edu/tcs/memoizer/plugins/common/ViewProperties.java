@@ -1,15 +1,13 @@
 package pl.edu.tcs.memoizer.plugins.common;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 
 public class ViewProperties {
 	private String name;
-	private URI path;
+	private String path;
 	
-	ViewProperties(String viewName, String pathName) throws URISyntaxException{
+	ViewProperties(String viewName, String pathName){
 		name = viewName;
-		path = new URI(pathName);
+		path = pathName;
 	}
 	
 	public String getName() {
@@ -20,16 +18,12 @@ public class ViewProperties {
 		this.name = name;
 	}
 	
-	public URI getPath() {
+	public String getPath() {
 		return path;
 	}
 	
-	public void setPath(URI path) {
+	public void setPath(String path) {
 		this.path = path;
-	}
-	
-	public void setPath(String pathName) throws URISyntaxException{
-		this.path = new URI(pathName);
 	}
 	
 }

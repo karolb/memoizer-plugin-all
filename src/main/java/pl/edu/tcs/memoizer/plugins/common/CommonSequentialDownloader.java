@@ -43,7 +43,8 @@ public class CommonSequentialDownloader implements IDownloadPlugin{
 	 */
 	public CommonSequentialDownloader(
 			String serviceName, IStateObject state, 
-			EViewType view, URI workingUrl, IPluginFactory 	pluginFactory) 
+			EViewType view, URI workingUrl, IPluginFactory 	pluginFactory,
+			CommonMemeDownloader memeDownloader) 
 	{
 		_serviceName = serviceName;
 		_state = state;
@@ -55,6 +56,7 @@ public class CommonSequentialDownloader implements IDownloadPlugin{
 		_lastSeenUrl = null;
 		_queue = new LinkedList<Meme>();
 		_pluginFactory = pluginFactory;
+		_memeDownloader = memeDownloader;
 	}
 	
 	/*

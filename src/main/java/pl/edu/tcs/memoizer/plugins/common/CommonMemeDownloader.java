@@ -2,7 +2,6 @@ package pl.edu.tcs.memoizer.plugins.common;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.jsoup.Jsoup;
@@ -16,6 +15,16 @@ import pl.edu.uj.tcs.memoizer.plugins.Meme;
 
 public abstract class CommonMemeDownloader {
 	
+	private String hostName;
+	
+	public String getHostName() {
+		return hostName;
+	}
+
+	public void setHostName(String hostName) {
+		this.hostName = hostName;
+	}
+
 	/*
 	 * Get a page source, parse it,
 	 * extract memes and return
@@ -45,52 +54,43 @@ public abstract class CommonMemeDownloader {
 	 * Extract html meme-linked elements 
 	 * from given page source
 	 */
-	private Elements extractMemeNodes(Document demotyPageSource){
-		//TODO
-		return null;
-	}
+	protected abstract Elements extractMemeNodes(Document demotyPageSource);
 	
 	/*
 	 * Parse html meme-linked element and extract meme info
 	 * returns list of parsed memes
 	 */
-	private List<Meme> extractMemesFromNodes(Elements memeNodes, EViewType viewType, IPluginFactory pluginFactory){
-		List<Meme> lst = new ArrayList<Meme>();
-		
-		//TODO
-		
-		return lst;
-	}
+	protected abstract List<Meme> extractMemesFromNodes(Elements memeNodes, EViewType viewType, IPluginFactory pluginFactory);
 	
-	private static URL extractPageLinkFromATag(Element aTagElement){
+	private URL extractPageLinkFromATag(Element aTagElement){
 		try{
-			return new URL(/*host name +*/ aTagElement.attr("href"));
+			return new URL(hostName + aTagElement.attr("href"));
 		}catch(Exception e){}
 		return null;
 	}
 	
-	private static URL extractImageLinkFromImgTag(Element imgTagElement){
+	private URL extractImageLinkFromImgTag(Element imgTagElement){
 		try{
 			return new URL(imgTagElement.attr("src"));
 		} catch(Exception e){}
 		return null;
 	}
 	
-	private static String extractTitleFromImgTag(Element imgTagElement){
+	private String extractTitleFromImgTag(Element imgTagElement){
 		try{
 			return imgTagElement.attr("alt");
 		} catch(Exception e){}
 		return "";
 	}
 	
-	private static int extractWidthFromImgTag(Element imgTagElement){
+	private int extractWidthFromImgTag(Element imgTagElement){
 		try{
 			return Integer.parseInt(imgTagElement.attr("width"));
 		} catch(Exception e){}
 		return 0;
 	}
 	
-	private static int extractHeightFromImgTag(Element imgTagElement){
+	private int extractHeightFromImgTag(Element imgTagElement){
 		try{
 			return Integer.parseInt(imgTagElement.attr("height"));
 		} catch(Exception e){}

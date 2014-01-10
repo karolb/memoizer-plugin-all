@@ -39,7 +39,8 @@ public class CommonSingleDownloader implements IDownloadPlugin{
 	 */
 	public CommonSingleDownloader(
 			String serviceName, IStateObject state, 
-			EViewType view, URI workingUrl, IPluginFactory 	pluginFactory) 
+			EViewType view, URI workingUrl, IPluginFactory 	pluginFactory,
+			CommonMemeDownloader memeDownloader) 
 	{
 		_serviceName = serviceName;
 		_state = state;
@@ -49,6 +50,7 @@ public class CommonSingleDownloader implements IDownloadPlugin{
 
 		_queue = new LinkedList<Meme>();
 		_pluginFactory = pluginFactory;
+		_memeDownloader = memeDownloader;
 	}
 	
 	/*
