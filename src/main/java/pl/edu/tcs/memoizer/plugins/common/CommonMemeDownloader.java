@@ -62,35 +62,28 @@ public abstract class CommonMemeDownloader {
 	 */
 	protected abstract List<Meme> extractMemesFromNodes(Elements memeNodes, EViewType viewType, IPluginFactory pluginFactory);
 	
-	private URL extractPageLinkFromATag(Element aTagElement){
-		try{
-			return new URL(hostName + aTagElement.attr("href"));
-		}catch(Exception e){}
-		return null;
-	}
-	
-	private URL extractImageLinkFromImgTag(Element imgTagElement){
+	protected URL extractImageLinkFromImgTag(Element imgTagElement){
 		try{
 			return new URL(imgTagElement.attr("src"));
 		} catch(Exception e){}
 		return null;
 	}
 	
-	private String extractTitleFromImgTag(Element imgTagElement){
+	protected String extractTitleFromImgTag(Element imgTagElement){
 		try{
 			return imgTagElement.attr("alt");
 		} catch(Exception e){}
 		return "";
 	}
 	
-	private int extractWidthFromImgTag(Element imgTagElement){
+	protected int extractWidthFromImgTag(Element imgTagElement){
 		try{
 			return Integer.parseInt(imgTagElement.attr("width"));
 		} catch(Exception e){}
 		return 0;
 	}
 	
-	private int extractHeightFromImgTag(Element imgTagElement){
+	protected int extractHeightFromImgTag(Element imgTagElement){
 		try{
 			return Integer.parseInt(imgTagElement.attr("height"));
 		} catch(Exception e){}

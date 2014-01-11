@@ -27,46 +27,27 @@ import pl.edu.uj.tcs.memoizer.serialization.IStateObject;
  * It's abstract class only to be extended by exact plugin implementation
  */
 public abstract class CommonDownloadPluginFactory implements IPluginFactory{
-	
-	/** The service name. */
-	String serviceName;
-	
-	/** The icon. */
-	Image icon;
+
 	
 	/** The available views. */
 	Map<EViewType, ViewProperties> availableViews = new HashMap<EViewType, ViewProperties>();
 
-	/**
-	 * Sets the service name.
-	 *
-	 * @param name the new service name
-	 */
-	public void setServiceName(String name) {
-		serviceName = name;
-	}
-	
-	public String getServiceName() {
-		return serviceName;
-	}
+	public abstract String getServiceName();
 
 	/**
-	 * Sets the icon.
+	 * Make the icon.
 	 *
 	 * @param T the new icon
 	 */
-	public void setIcon(byte T[]) {
+	public static Image makeIcon(byte T[]) {
 		try{
-			icon = ImageIO.read(new ByteArrayInputStream(T)); 
+			return ImageIO.read(new ByteArrayInputStream(T)); 
 		}catch(IOException e){
-			icon = null;
+			return null;
 		}
 	}
 	
-	public Image getIcon(){
-		return icon;
-	}
-	
+	public abstract Image getIcon();
 	
 	/**
 	 * Adds the view to Factory.
