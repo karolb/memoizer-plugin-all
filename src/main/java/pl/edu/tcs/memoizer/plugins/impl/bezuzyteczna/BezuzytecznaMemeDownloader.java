@@ -42,7 +42,7 @@ List<Meme> lst = new ArrayList<Meme>();
 				URL pageLink = extractPageLinkFromATag(picLink);
 				
 				//<li id="_75839">
-				Integer idInput = Integer.parseInt(meme.attr("value").substring(1));
+				Integer idInput = Integer.parseInt(meme.attr("id").substring(1));
 				
 				Element image = picLink.select("div.entry_img > a > img[src]").first();
 				URL imageLink = extractImageLinkFromImgTag(image);
