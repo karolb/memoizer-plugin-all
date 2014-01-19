@@ -1,4 +1,4 @@
-package pl.edu.tcs.memoizer.plugins.common;
+package pl.edu.uj.tcs.memoizer.plugins.common;
 
 
 public class ViewProperties {

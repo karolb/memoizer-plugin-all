@@ -1,4 +1,4 @@
-package pl.edu.tcs.memoizer.plugins.impl.bezuzyteczna;
+package pl.edu.uj.tcs.memoizer.plugins.impl.bezuzyteczna;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -8,10 +8,10 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import pl.edu.tcs.memoizer.plugins.common.CommonMemeDownloader;
 import pl.edu.uj.tcs.memoizer.plugins.EViewType;
 import pl.edu.uj.tcs.memoizer.plugins.IPluginFactory;
 import pl.edu.uj.tcs.memoizer.plugins.Meme;
+import pl.edu.uj.tcs.memoizer.plugins.common.CommonMemeDownloader;
 
 public class BezuzytecznaMemeDownloader extends CommonMemeDownloader{
 

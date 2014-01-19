@@ -1,11 +1,11 @@
-package pl.edu.tcs.memoizer.plugins.impl.bezuzyteczna;
+package pl.edu.uj.tcs.memoizer.plugins.impl.bezuzyteczna;
 
 import java.awt.Image;
 
-import pl.edu.tcs.memoizer.plugins.common.*;
 import pl.edu.uj.tcs.memoizer.plugins.EViewType;
 import pl.edu.uj.tcs.memoizer.plugins.IDownloadPlugin;
 import pl.edu.uj.tcs.memoizer.plugins.InvalidViewException;
+import pl.edu.uj.tcs.memoizer.plugins.common.*;
 import pl.edu.uj.tcs.memoizer.serialization.IStateObject;
 
 public class BezuzytecznaDownloadPluginFactory extends CommonDownloadPluginFactory{
