@@ -1,4 +1,4 @@
-memoizer-plugin-all
+memoizer-plugins-all
 ===================
 
 All memoizer plugin using pattern.
